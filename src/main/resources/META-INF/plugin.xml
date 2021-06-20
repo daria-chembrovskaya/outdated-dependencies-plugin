@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>org.jetbrains.plugins.outdated-deps</id>
+    <name>Outdated Dependencies</name>
+    <vendor>Daria Chembrovskaya</vendor>
+
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
+        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
+        <projectService serviceImplementation="org.jetbrains.plugins.template.LanguageService"/>
+        <editor.linePainter implementation="org.jetbrains.plugins.template.LinePainter"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+</idea-plugin>
